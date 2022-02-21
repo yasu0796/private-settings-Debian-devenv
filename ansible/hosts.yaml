@@ -5,4 +5,6 @@ all:
       ansible_connection: local
   vars:
     privateuser: yasu0796
+    gitemail: yasu0796@msn.com
+    gituser: yasu0796
     ansible_python_interpreter: /usr/bin/python3
