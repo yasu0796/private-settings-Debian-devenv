@@ -1,0 +1,70 @@
+---
+- name: Run the equivalent of "apt-get update" as a separate step
+  apt:
+    update_cache: yes
+
+- name: Update all packages to their latest version
+  apt:
+    name: "*"
+    state: latest # noqa package-latest
+    force_apt_get: yes
+
+- name: install apt packages
+  apt:
+    name: ['ansible-lint', 'dnsutils', 'iftop', 'iperf3', 'jq', 'nmap', 'pylint3', 'python3-pip', 'sshpass', 'tcpdump', 'traceroute', 'whois', 'yamllint']
+    state: present
+
+- name: Remove useless packages from the cache
+  apt:
+    autoclean: yes
+
+- name: Remove dependencies that are no longer required
+  apt:
+    autoremove: yes
+
+- name: Edit .bashrc to use alias
+  replace:
+    path: /home/{{ privateuser }}/.bashrc
+    regexp: '{{ item.regexp }}'
+    replace: '{{ item.replace }}'
+    backup: yes
+  with_items:
+    - regexp: '#alies grep'
+      replace: 'alies grep'
+    - regexp: '#alies egrep'
+      replace: 'alies egrep'
+    - regexp: '#alies fgrep'
+      replace: 'alies fgrep'
+    - regexp: '#alies ll'
+      replace: 'alies ll'
+
+- name: create ~/.ssh/keys
+  file:
+    path: "/home/{{ privateuser }}/.ssh/keys"
+    state: directory
+    recurse: yes
+    owner: "{{ privateuser }}"
+    group: "{{ privateuser }}"
+    mode: '0700'
+
+- name: Set authorized key
+  authorized_key:
+    user: "{{ privateuser }}"
+    state: present
+    key: "{{ lookup('file', 'files/yasu-homepc-ed25519.pub') }}"
+
+- name: Set git user.email
+  git_config:
+    name: user.email
+    scope: global
+    value: "yasu0796@msn.com"
+  become: yes
+  become_user: "{{ privateuser }}"
+
+- name: Set git user.name
+  git_config:
+    name: user.name
+    scope: global
+    value: "yasu0796"
+  become: yes
+  become_user: "{{ privateuser }}"
