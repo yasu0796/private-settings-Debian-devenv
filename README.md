@@ -36,3 +36,5 @@ This playbook doesn't cointain ssh keys.
 
 - [ansible.builtin.apt – Manages apt-packages — Ansible Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html)
 - [ansible.builtin.replace – Replace all instances of a particular string in a file using a back-referenced regular expression — Ansible Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/replace_module.html)
+- [ansible.builtin.apt_key – Add or remove an apt key — Ansible Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_key_module.html)
+- [ansible.builtin.apt_repository – Add and remove APT repositories — Ansible Documentation](https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_repository_module.html#ansible-collections-ansible-builtin-apt-repository-module)

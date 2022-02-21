@@ -1,0 +1,18 @@
+---
+# https://docs.docker.com/engine/install/debian/
+
+- name: Add Docker official GPG key
+  apt_key:
+    url: https://download.docker.com/linux/debian/gpg
+    keyring: /usr/share/keyrings/docker-archive-keyring.gpg
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian {{ ansible_distribution_release }} stable
+    filename: docker
+
+- name: install apt packages
+  apt:
+    name: docker-ce
+    state: present
+    update_cache: yes
