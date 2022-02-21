@@ -29,14 +29,14 @@
     replace: '{{ item.replace }}'
     backup: yes
   with_items:
-    - regexp: '#alies grep'
-      replace: 'alies grep'
-    - regexp: '#alies egrep'
-      replace: 'alies egrep'
-    - regexp: '#alies fgrep'
-      replace: 'alies fgrep'
-    - regexp: '#alies ll'
-      replace: 'alies ll'
+    - regexp: '#alias grep'
+      replace: 'alias grep'
+    - regexp: '#alias egrep'
+      replace: 'alias egrep'
+    - regexp: '#alias fgrep'
+      replace: 'alias fgrep'
+    - regexp: '#alias ll'
+      replace: 'alias ll'
 
 - name: create ~/.ssh/keys
   file:
