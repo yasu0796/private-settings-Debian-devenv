@@ -24,7 +24,7 @@ sudo apt install python3-apt
 
 ```bash
 cd private-settings-Chromebook-Debian/ansible
-sudo ansible-playbook -i hosts.yaml playbook.yaml -v
+sudo ansible-playbook -i hosts.yaml playbook.yaml -v --diff
 ```
 
 ## Limitations
