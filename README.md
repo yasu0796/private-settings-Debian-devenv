@@ -1,10 +1,16 @@
-# Private Settings for Chromebook Debian
+# Private Settings for Debian Development environment
 
 ## 1. Hardware
+
+### ChromeOS
 
 I use Lenovo IdeaPad Duet Chromebook.
 
 https://www.lenovo.com/jp/ja/notebooks/ideapad/duet-3-series/Lenovo-CT-X636/p/ZZICZCTCT1X
+
+### Android
+
+Android 15 QPR2 will support Linux development environment of Debian.
 
 ## 2. Prepare
 
@@ -16,7 +22,7 @@ git clone https://github.com/yasu0796/private-settings-Chromebook-Debian.git
 
 If you can check pre. Install python3-apt.
 
-```
+```bash
 sudo apt install python3-apt
 ```
 
@@ -24,13 +30,29 @@ sudo apt install python3-apt
 
 ```bash
 cd private-settings-Chromebook-Debian/ansible
+```
+
+Check your username.
+
+```bash
+vim hosts.yaml
+```
+
+Dry-run
+
+```bash
+sudo ansible-playbook -i hosts.yaml playbook.yaml -v --diff --check
+```
+
+Run
+
+```bash
 sudo ansible-playbook -i hosts.yaml playbook.yaml -v --diff
 ```
 
 ## Limitations
 
 This playbook doesn't cointain ssh keys.
-
 
 ## Information
 
