@@ -38,13 +38,18 @@
     - regexp: '#alias ll'
       replace: 'alias ll'
 
-- name: create ~/.ssh/keys
+- name: Check homedir stat
+  stat:
+    path: "/home/{{ privateuser }}"
+  register: homedir_stat
+
+- name: Create ~/.ssh/keys
   file:
     path: "/home/{{ privateuser }}/.ssh/keys"
     state: directory
     recurse: yes
-    owner: "{{ privateuser }}"
-    group: "{{ privateuser }}"
+    owner: "{{ homedir_stat.stat.pw_name }}"
+    group: "{{ homedir_stat.stat.gr_name }}"
     mode: '0700'
 
 - name: Set authorized key
