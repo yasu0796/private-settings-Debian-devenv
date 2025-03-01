@@ -5,6 +5,7 @@
   apt_key:
     url: https://download.docker.com/linux/debian/gpg
     keyring: /usr/share/keyrings/docker-archive-keyring.gpg
+  ignore_errors: true
 
 - name: Add Docker Repository
   apt_repository:
