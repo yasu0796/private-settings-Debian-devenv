@@ -10,7 +10,7 @@ https://www.lenovo.com/jp/ja/notebooks/ideapad/duet-3-series/Lenovo-CT-X636/p/ZZ
 
 ```bash
 sudo apt update
-sudo apt install ansible
+sudo apt install ansible git
 git clone https://github.com/yasu0796/private-settings-Chromebook-Debian.git
 ```
 
