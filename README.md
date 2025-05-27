@@ -10,14 +10,14 @@ https://www.lenovo.com/jp/ja/notebooks/ideapad/duet-3-series/Lenovo-CT-X636/p/ZZ
 
 ### Android
 
-Android 15 QPR2 will support Linux development environment of Debian.
+Android 15 QPR2+ support Linux development environment of Debian.
 
 ## 2. Prepare
 
 ```bash
 sudo apt update
 sudo apt install ansible git
-git clone https://github.com/yasu0796/private-settings-Chromebook-Debian.git
+git clone https://github.com/yasu0796/private-settings-Debian-devenv.git
 ```
 
 If you can check pre. Install python3-apt.
