@@ -29,7 +29,7 @@ sudo apt install python3-apt
 ## 3. Run
 
 ```bash
-cd private-settings-Chromebook-Debian/ansible
+cd private-settings-Debian-devenv/ansible
 ```
 
 Check your username.
