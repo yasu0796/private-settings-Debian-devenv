@@ -1,33 +1,46 @@
 ---
 - name: Run the equivalent of "apt-get update" as a separate step
   apt:
-    update_cache: yes
+    update_cache: true
 
 - name: Update all packages to their latest version
   apt:
     name: "*"
-    state: latest # noqa package-latest
-    force_apt_get: yes
+    state: latest  # noqa package-latest
+    force_apt_get: true
 
-- name: install apt packages
+- name: Install apt packages
   apt:
-    name: ['ansible-lint', 'dnsutils', 'iftop', 'iperf3', 'jq', 'nmap', 'pylint', 'python3-pip', 'sshpass', 'tcpdump', 'traceroute', 'whois', 'yamllint']
+    name:
+      - ansible-lint
+      - dnsutils
+      - iftop
+      - iperf3
+      - jq
+      - nmap
+      - pylint
+      - python3-pip
+      - sshpass
+      - tcpdump
+      - traceroute
+      - whois
+      - yamllint
     state: present
 
 - name: Remove useless packages from the cache
   apt:
-    autoclean: yes
+    autoclean: true
 
 - name: Remove dependencies that are no longer required
   apt:
-    autoremove: yes
+    autoremove: true
 
 - name: Edit .bashrc to use alias
   replace:
     path: /home/{{ privateuser }}/.bashrc
     regexp: '{{ item.regexp }}'
     replace: '{{ item.replace }}'
-    backup: yes
+    backup: true
   with_items:
     - regexp: '#alias grep'
       replace: 'alias grep'
@@ -47,7 +60,7 @@
   file:
     path: "/home/{{ privateuser }}/.ssh/keys"
     state: directory
-    recurse: yes
+    recurse: true
     owner: "{{ homedir_stat.stat.pw_name }}"
     group: "{{ homedir_stat.stat.gr_name }}"
     mode: '0700'
@@ -63,7 +76,7 @@
     name: user.email
     scope: global
     value: "{{ gitemail }}"
-  become: yes
+  become: true
   become_user: "{{ privateuser }}"
 
 - name: Set git user.name
@@ -71,5 +84,5 @@
     name: user.name
     scope: global
     value: "{{ gituser }}"
-  become: yes
+  become: true
   become_user: "{{ privateuser }}"

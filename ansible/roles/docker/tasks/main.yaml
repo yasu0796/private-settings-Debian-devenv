@@ -16,5 +16,4 @@
   apt:
     name: docker-ce
     state: present
-    update_cache: yes
-  ignore_errors: true
+    update_cache: true
