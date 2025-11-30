@@ -21,6 +21,7 @@
       - nmap
       - pylint
       - python3-pip
+      - shellcheck
       - sshpass
       - tcpdump
       - traceroute
