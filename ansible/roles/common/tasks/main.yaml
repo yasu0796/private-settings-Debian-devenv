@@ -25,6 +25,7 @@
       - sshpass
       - tcpdump
       - traceroute
+      - vim
       - whois
       - yamllint
     state: present
