@@ -2,5 +2,7 @@
 - name: Main task
   hosts: all
   roles:
-    - common
-#    - docker
+    - role: common
+      tags: common
+    - role: docker
+      tags: docker
