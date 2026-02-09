@@ -38,6 +38,15 @@
   apt:
     autoremove: true
 
+- name: When android, force set privateuser to droid
+  set_fact:
+    privateuser: "droid"
+  when: "'android' in ansible_kernel"
+
+- name: Check privateuser
+  debug:
+    msg: "User is {{ privateuser }}"
+
 - name: Edit .bashrc to use alias
   replace:
     path: /home/{{ privateuser }}/.bashrc
