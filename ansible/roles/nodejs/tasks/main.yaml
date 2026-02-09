@@ -1,0 +1,30 @@
+---
+# Debian 12 (bookworm)'s repo contains old verision. Node.js 18.20
+# So install latest version
+# https://github.com/nodejs/release#release-schedule
+
+# We use NodeSource
+# https://github.com/nodesource/distributions/wiki/Repository-Manual-Installation
+
+- name: Add NodeSource official GPG key
+  get_url:
+    url: https://deb.nodesource.com/gpgkey/nodesource-repo.gpg.key
+    dest: /etc/apt/keyrings/nodesource.asc
+    mode: '0644'
+
+- name: Add NodeSource repository
+  copy:
+    dest: /etc/apt/sources.list.d/nodesource.sources
+    mode: '0644'
+    content: |
+      Types: deb
+      URIs: https://deb.nodesource.com/node_24.x
+      Suites: nodistro
+      Components: main
+      Signed-By: /etc/apt/keyrings/nodesource.asc
+
+- name: Install Node.js
+  apt:
+    name: nodejs
+    state: present
+    update_cache: true

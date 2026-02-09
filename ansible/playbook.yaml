@@ -6,3 +6,5 @@
       tags: common
     - role: docker
       tags: docker
+    - role: nodejs
+      tags: nodejs
