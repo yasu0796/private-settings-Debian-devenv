@@ -41,7 +41,7 @@
 - name: When android, force set privateuser to droid
   set_fact:
     privateuser: "droid"
-  when: "'android' in `ansible_facts['kernel']`"
+  when: "'android' in ansible_facts['kernel']"
 
 - name: Check privateuser
   debug:
