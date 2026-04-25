@@ -16,7 +16,11 @@ Android 15 QPR2+ supports a Linux development environment based on Debian.
 
 ```bash
 sudo apt update
+```
+```bash
 sudo apt install ansible git
+```
+```bash
 git clone https://github.com/yasu0796/private-settings-Debian-devenv.git
 ```
 
@@ -41,13 +45,13 @@ vim hosts.yaml
 Dry-run
 
 ```bash
-sudo ansible-playbook -i hosts.yaml playbook.yaml -v --diff --check
+sudo ansible-playbook playbook.yaml -v --diff --check
 ```
 
 Run
 
 ```bash
-sudo ansible-playbook -i hosts.yaml playbook.yaml -v --diff
+sudo ansible-playbook playbook.yaml -v --diff
 ```
 
 ## Limitations

@@ -1,2 +1,2 @@
 #!/bin/sh
-ansible-playbook -i hosts.yaml playbook.yaml -v --check --diff
+ansible-playbook playbook.yaml --tags common -v --check --diff
